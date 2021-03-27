@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinPractice7.Views.HomePage"
+             Title="Home"
+             xmlns:controls="clr-namespace:XamarinPractice7.Controls"
+             xmlns:effects="clr-namespace:XamarinPractice7.Effects"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:androidNav="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;assembly=Xamarin.Forms.Core"
+             androidNav:NavigationPage.BarHeight="450"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
+
+        <ScrollView>
+            <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*">
+
+
+                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Label Text="{Binding DependencyServiceTitle}" FontSize="25" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label  Text="{Binding Orientation}" FontSize="20" TextColor="DodgerBlue" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Button Text="Get Orientation" Command="{Binding GetOrientarionCommand}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Label Text="{Binding CustomRendererTitle}" FontSize="25" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Entry Text="{Binding NormalEntryText}" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center" ios:Entry.AdjustsFontSizeToFitWidth="true" />
+                    <controls:MyEntry Text="{Binding CustomEntryText}" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Label Text="{Binding Effects}" FontSize="25" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Text="{Binding EntryWithoutEffect}" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Text="{Binding EntryWithEffect}" x:Name="entryEffects" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Entry.Effects>
+                            <effects:FocusEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </StackLayout>
+
+
+                <StackLayout Grid.Column="0" Grid.Row="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10" >
+                <Label Text="{Binding PlatformSpecificsTitle}" FontSize="25" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Entry Placeholder="Entry with platform specific NONE" android:Entry.ImeOptions="None"/>
+                    <Entry Placeholder="Entry with platform specific GO" android:Entry.ImeOptions="Go"/>
+
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+
+</ContentPage>
